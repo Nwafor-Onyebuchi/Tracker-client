@@ -4,8 +4,8 @@ import AppReducer from './AppReducer'
 const initialState = {
     transactions: [
         {id: 1, narration: 'Bought shoes', amount: -2670},
-        {id: 1, narration: 'Bought Books', amount: -590},
-        {id: 1, narration: 'Received Cash gift', amount: 15000}
+        {id: 2, narration: 'Bought Books', amount: -590},
+        {id: 3, narration: 'Received Cash gift', amount: 15000}
     ]
 }
 
