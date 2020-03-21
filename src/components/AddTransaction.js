@@ -1,10 +1,10 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useContext } from "react";
+import {GlobalContext} from '../context/GlobalState'
 
 export const AddTransaction = () => {
-
         const [state, setstate] = useState({
-            transaction: 0,
-            amount: 0
+            transaction: '',
+            amount: ''
         })
 const handleTransactionInput = (e) =>{
     setstate({...state, transaction:e.target.value})
@@ -14,10 +14,22 @@ const handleAmountInput = (e) =>{
     setstate({...state, amount:e.target.value})
 }
  
+const { addTransaction } = useContext(GlobalContext)
+ 
 const show = (e) =>{
     e.preventDefault()
-    console.log(state.amount)
-    console.log(state.transaction)
+
+    const newTransaction = {
+      id: Math.floor(Math.random() * 1000000000),
+      naration: state.transaction,
+      amount: +state.amount
+    }
+
+    addTransaction(newTransaction)
+    // console.log(state.amount)
+    // console.log(state.transaction)
+
+
   }
     
   return (
@@ -31,9 +43,9 @@ const show = (e) =>{
         <div className="form-control">
           <label htmlFor="amount">
             Amount <br />
-            (negative - expense, positive - income)
+            <small></small>
           </label>
-          <input type="number" value={state.amount} placeholder="Enter amount..." onChange={handleAmountInput}/>
+          <input type="number" value={state.amount} placeholder="Enter +value for income and -value for expense" onChange={handleAmountInput}/>
         </div>
         <button className='btn' onClick={show}>Add Transaction</button>
       </form>
