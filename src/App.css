@@ -110,6 +110,8 @@ input[type='number'] {
   list-style-type: none;
   padding: 0;
   margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
 }
 
 .list li {
@@ -125,6 +127,7 @@ input[type='number'] {
 
 .list li.plus {
   border-right: 5px solid #2ecc71;
+ 
 }
 
 .list li.minus {
@@ -155,4 +158,10 @@ input[type='number'] {
   .container {
     width: 300px;
   }
+}
+
+@media(max-width: 768px) {
+ .container{
+  width: 280px;
+ } 
 }

@@ -19,17 +19,15 @@ const { addTransaction } = useContext(GlobalContext)
 const show = (e) =>{
     e.preventDefault()
 
-    const newTransaction = {
-      id: Math.floor(Math.random() * 1000000000),
-      naration: state.transaction,
-      amount: +state.amount
-    }
+     const newTransaction = {
+       id: Math.floor(Math.random() * 1000000000),
+       naration: state.transaction,
+       amount: +state.amount
+     }
 
     addTransaction(newTransaction)
     // console.log(state.amount)
     // console.log(state.transaction)
-
-
   }
     
   return (
@@ -38,7 +36,7 @@ const show = (e) =>{
       <form>
         <div className="form-control">
           <label htmlFor="Transaction">Transaction</label>
-          <input type="text" placeholder="Enter a transaction..." onChange={handleTransactionInput} />
+          <input type="text" placeholder="Tap to add a transaction..." onChange={handleTransactionInput} />
         </div>
         <div className="form-control">
           <label htmlFor="amount">
